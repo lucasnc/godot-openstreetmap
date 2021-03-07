@@ -34,9 +34,9 @@ func set_center(p):
 		for t in tiles:
 			t.hide()
 		var needed_tiles = []
-		for _x in range(2*size+1):
-			for _y in range(2*size+1):
-				var t = { x=int(x+_x-size), y=int(y+_y-size) }
+		for _xx in range(2*size+1):
+			for _yy in range(2*size+1):
+				var t = { x=int(x+_xx-size), y=int(y+_yy-size) }
 				var name = "tile_3d_"+str(t.x)+"_"+str(t.y)
 				if has_node(name):
 					get_node(name).show()
