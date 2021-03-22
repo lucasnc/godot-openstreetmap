@@ -9,6 +9,9 @@ margin_left = -324.0
 margin_bottom = 76.0
 columns = 2
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Country" type="OptionButton" parent="."]
 margin_right = 160.0
@@ -48,7 +51,6 @@ margin_top = 52.0
 margin_right = 324.0
 margin_bottom = 76.0
 size_flags_horizontal = 3
-
 [connection signal="item_selected" from="Country" to="." method="select_country"]
 [connection signal="item_selected" from="City" to="." method="select_city"]
 [connection signal="text_entered" from="Latitude" to="." method="commit_location"]

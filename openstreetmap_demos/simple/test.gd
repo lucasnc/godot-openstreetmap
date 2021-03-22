@@ -11,7 +11,7 @@ var y = null
 var event_timestamp = 0
 
 func _ready():
-	teleport(7.6132, 51.98306)
+	teleport(-25.094072, -50.152797)
 
 func _on_Ground_input_event(c, event, click_pos, click_normal, shape_idx):
 	if event is InputEventMouseButton:
