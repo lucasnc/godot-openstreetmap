@@ -3,7 +3,6 @@ extends KinematicBody
 export(float) var run_speed = 10.0
 
 var map = null
-
 var motion = Vector3(0, 0, 0)
 var previous_position = Vector3(0, 0, 0)
 
@@ -21,9 +20,9 @@ func _physics_process(delta):
 	if Input.is_action_pressed("ui_down"):
 		direction.x -= run_speed
 	if Input.is_action_pressed("ui_left"):
-		direction.y += run_speed
-	if Input.is_action_pressed("ui_right"):
 		direction.y -= run_speed
+	if Input.is_action_pressed("ui_right"):
+		direction.y += run_speed
 	if direction.length() > run_speed:
 		direction /= direction.length()
 		direction *= run_speed

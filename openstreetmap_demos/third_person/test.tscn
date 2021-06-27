@@ -60,5 +60,5 @@ environment = null
 
 [node name="Locations" parent="." instance=ExtResource( 15 )]
 
-[connection signal="new_location" from="Locations" to="Player" method="teleport"]
 [connection signal="new_location" from="Locations" to="." method="teleport"]
+[connection signal="new_location" from="Locations" to="Player" method="teleport"]
