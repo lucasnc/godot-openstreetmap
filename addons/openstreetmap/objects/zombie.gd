@@ -27,19 +27,19 @@ func _fixed_process(delta):
 func _on_enter_screen():
 	if !dead:
 		animation_player.play("default")
-		set_fixed_process(true)
+		set_physics_process(false)
 		ray1.set_enabled(true)
 		ray2.set_enabled(true)
 
 func _on_exit_screen():
 	animation_player.stop()
-	set_fixed_process(false)
+	set_physics_process(false)
 	ray1.set_enabled(false)
 	ray2.set_enabled(false)
 
 func _on_zombie_body_enter(body):
 	dead = true
-	set_fixed_process(false)
+	set_physics_process(false)
 	armature.hide()
 	particles.show()
 	particles.set_emitting(true)
