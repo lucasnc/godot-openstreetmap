@@ -11,16 +11,7 @@ var y = null
 var event_timestamp = 0
 
 func _ready():
-	teleport(-25.094072, -50.152797)
-	
-	print("gerando caixa...")
-	var mesh = MeshInstance.new()
-	mesh.set_mesh(CubeMesh.new())
-	var player_position = $Player.transform.origin
-	mesh.transform.origin = player_position
-	print("posição do player", player_position)
-	print("posição da caixa", mesh.transform.origin)
-	add_child(mesh)
+	teleport(-25.09411, -50.15175)
 
 func _on_Ground_input_event(c, event, click_pos, click_normal, shape_idx):
 	if event is InputEventMouseButton:

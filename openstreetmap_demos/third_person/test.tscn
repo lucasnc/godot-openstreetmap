@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://openstreetmap_demos/simple/test.gd" type="Script" id=1]
 [ext_resource path="res://addons/openstreetmap/map.tscn" type="PackedScene" id=2]
@@ -15,12 +15,7 @@
 [ext_resource path="res://openstreetmap_demos/third_person/player.tscn" type="PackedScene" id=13]
 [ext_resource path="res://openstreetmap_demos/third_person/camera.tscn" type="PackedScene" id=14]
 [ext_resource path="res://openstreetmap_demos/locations.tscn" type="PackedScene" id=15]
-[ext_resource path="res://addons/openstreetmap/textures/Facade014_2K_emi.jpg" type="Texture" id=16]
-[ext_resource path="res://openstreetmap_demos/third_person/TexturesCom_HighRiseGlass0016_1_seamless_S.jpg" type="Texture" id=17]
-[ext_resource path="res://addons/openstreetmap/textures/Facade014_2K_Roughness.jpg" type="Texture" id=18]
-[ext_resource path="res://addons/openstreetmap/textures/Facade014_2K_Normal.jpg" type="Texture" id=19]
-[ext_resource path="res://addons/openstreetmap/textures/Facade014_2K_Displacement.jpg" type="Texture" id=20]
-[ext_resource path="res://openstreetmap_demos/third_person/building.gd" type="Script" id=21]
+[ext_resource path="res://openstreetmap_demos/third_person/building.tscn" type="PackedScene" id=16]
 
 [sub_resource type="ProceduralSky" id=1]
 sky_top_color = Color( 0.0470588, 0.454902, 0.976471, 1 )
@@ -40,27 +35,6 @@ ambient_light_energy = 0.6
 ambient_light_sky_contribution = 0.0
 ssao_enabled = true
 ssao_blur = 1
-
-[sub_resource type="CubeMesh" id=3]
-
-[sub_resource type="SpatialMaterial" id=4]
-albedo_texture = ExtResource( 17 )
-roughness_texture = ExtResource( 18 )
-emission_enabled = true
-emission = Color( 0, 0, 0, 1 )
-emission_energy = 1.0
-emission_operator = 0
-emission_on_uv2 = false
-emission_texture = ExtResource( 16 )
-normal_enabled = true
-normal_scale = 1.0
-normal_texture = ExtResource( 19 )
-depth_enabled = true
-depth_scale = 0.001
-depth_deep_parallax = false
-depth_flip_tangent = false
-depth_flip_binormal = false
-depth_texture = ExtResource( 20 )
 
 [node name="Spatial" type="Spatial"]
 script = ExtResource( 1 )
@@ -88,11 +62,7 @@ environment = null
 
 [node name="Locations" parent="." instance=ExtResource( 15 )]
 
-[node name="Building" type="MeshInstance" parent="."]
-transform = Transform( 14.3605, 0, -8.95247e-07, 0, -9.3768, 0, 1.30519e-06, 0, 10.6463, 14.191, 11.1993, 4.36324 )
-mesh = SubResource( 3 )
-material/0 = SubResource( 4 )
-script = ExtResource( 21 )
+[node name="Building" parent="." instance=ExtResource( 16 )]
 
 [connection signal="new_location" from="Locations" to="." method="teleport"]
 [connection signal="new_location" from="Locations" to="Player" method="teleport"]
