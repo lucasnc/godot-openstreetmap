@@ -7,6 +7,7 @@ var motion = Vector3(0, 0, 0)
 var previous_position = Vector3(0, 0, 0)
 
 func _ready():
+	add_to_group(game.PLAYER)
 	pass
 
 func _physics_process(delta):

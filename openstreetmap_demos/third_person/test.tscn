@@ -15,7 +15,7 @@
 [ext_resource path="res://openstreetmap_demos/third_person/player.tscn" type="PackedScene" id=13]
 [ext_resource path="res://openstreetmap_demos/third_person/camera.tscn" type="PackedScene" id=14]
 [ext_resource path="res://openstreetmap_demos/locations.tscn" type="PackedScene" id=15]
-[ext_resource path="res://openstreetmap_demos/third_person/building.tscn" type="PackedScene" id=16]
+[ext_resource path="res://openstreetmap_demos/third_person/objects/collectable.tscn" type="PackedScene" id=16]
 
 [sub_resource type="ProceduralSky" id=1]
 sky_top_color = Color( 0.0470588, 0.454902, 0.976471, 1 )
@@ -62,7 +62,8 @@ environment = null
 
 [node name="Locations" parent="." instance=ExtResource( 15 )]
 
-[node name="Building" parent="." instance=ExtResource( 16 )]
+[node name="Collectable" parent="." instance=ExtResource( 16 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.32671, 0, 0 )
 
-[connection signal="new_location" from="Locations" to="." method="teleport"]
 [connection signal="new_location" from="Locations" to="Player" method="teleport"]
+[connection signal="new_location" from="Locations" to="." method="teleport"]

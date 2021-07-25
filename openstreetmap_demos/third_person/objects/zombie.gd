@@ -9,6 +9,7 @@ onready var particles = get_node("Particles")
 var dead
 
 func _ready():
+	add_to_group(game.ZOMBIE)
 	dead = false
 	armature.show()
 	particles.hide()
