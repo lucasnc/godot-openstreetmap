@@ -12,6 +12,19 @@ var event_timestamp = 0
 
 func _ready():
 	teleport(-25.09411, -50.15175)
+	spawn_collectables()
+	
+func spawn_collectables():
+	var count = 5
+	var collectable_resource = load("res://openstreetmap_demos/third_person/objects/collectable.tscn")
+	for i in count:
+		var collectable = collectable_resource.instance()
+		collectable.translation = Vector3(rand_range(0, 20), 0, rand_range(0, 10))
+		print("gerando item ", collectable.translation)
+		add_child(collectable)
+		
+	
+	
 
 func _on_Ground_input_event(c, event, click_pos, click_normal, shape_idx):
 	if event is InputEventMouseButton:

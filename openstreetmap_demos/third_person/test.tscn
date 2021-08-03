@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://openstreetmap_demos/simple/test.gd" type="Script" id=1]
 [ext_resource path="res://addons/openstreetmap/map.tscn" type="PackedScene" id=2]
@@ -15,7 +15,6 @@
 [ext_resource path="res://openstreetmap_demos/third_person/player.tscn" type="PackedScene" id=13]
 [ext_resource path="res://openstreetmap_demos/third_person/camera.tscn" type="PackedScene" id=14]
 [ext_resource path="res://openstreetmap_demos/locations.tscn" type="PackedScene" id=15]
-[ext_resource path="res://openstreetmap_demos/third_person/objects/collectable.tscn" type="PackedScene" id=16]
 
 [sub_resource type="ProceduralSky" id=1]
 sky_top_color = Color( 0.0470588, 0.454902, 0.976471, 1 )
@@ -50,7 +49,7 @@ map_objects = [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResourc
 transform = Transform( 1, 0, 0, 0, 0.325859, 0.945418, 0, -0.945418, 0.325859, 0, 39.6899, 0.910561 )
 light_energy = 0.4
 
-[node name="UserInterface" parent="." instance=ExtResource( 12 )]
+[node name="HUD" parent="." instance=ExtResource( 12 )]
 
 [node name="Player" parent="." instance=ExtResource( 13 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0 )
@@ -61,9 +60,7 @@ transform = Transform( 1, 0, 0, 0, 0.858015, 0.513624, 0, -0.513624, 0.858015, -
 environment = null
 
 [node name="Locations" parent="." instance=ExtResource( 15 )]
-
-[node name="Collectable" parent="." instance=ExtResource( 16 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.32671, 0, 0 )
+visible = false
 
 [connection signal="new_location" from="Locations" to="Player" method="teleport"]
 [connection signal="new_location" from="Locations" to="." method="teleport"]

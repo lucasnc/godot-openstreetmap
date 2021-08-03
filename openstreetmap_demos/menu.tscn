@@ -32,6 +32,7 @@ margin_top = 48.0
 margin_right = 133.0
 margin_bottom = 68.0
 text = "Third person demo"
+
 [connection signal="pressed" from="VBoxContainer/Simple" to="." method="_on_Button_pressed" binds= [ "res://openstreetmap_demos/simple/test.tscn" ]]
 [connection signal="pressed" from="VBoxContainer/Vehicle" to="." method="_on_Button_pressed" binds= [ "res://openstreetmap_demos/car/test.tscn" ]]
 [connection signal="pressed" from="VBoxContainer/ThirdPerson" to="." method="_on_Button_pressed" binds= [ "res://openstreetmap_demos/third_person/test.tscn" ]]

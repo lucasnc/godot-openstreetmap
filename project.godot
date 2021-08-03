@@ -25,6 +25,7 @@ geometry="*res://addons/openstreetmap/global/geometry.gd"
 game_state="*res://addons/openstreetmap/global/game_state.gd"
 http="*res://addons/openstreetmap/global/http.gd"
 meshes="*res://addons/openstreetmap/global/meshes.gd"
+game="*res://openstreetmap_demos/global/game.gd"
 
 [display]
 
