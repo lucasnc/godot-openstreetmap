@@ -57,5 +57,7 @@ transform = Transform( 1, 0, 0, 0, 0.325859, 0.945418, 0, -0.945418, 0.325859, 0
 [node name="UserInterface" parent="." instance=ExtResource( 12 )]
 
 [node name="Locations" parent="." instance=ExtResource( 13 )]
+visible = false
+
 [connection signal="input_event" from="Ground" to="." method="_on_Ground_input_event"]
 [connection signal="new_location" from="Locations" to="." method="teleport"]

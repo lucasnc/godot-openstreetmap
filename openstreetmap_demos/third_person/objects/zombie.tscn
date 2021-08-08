@@ -391,4 +391,9 @@ shape = SubResource( 4 )
 [node name="Particles" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.920885, 0 )
 
+[node name="Timer" type="Timer" parent="."]
+process_mode = 0
+wait_time = 5.0
+
 [connection signal="body_entered" from="." to="." method="_on_zombie_body_enter"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

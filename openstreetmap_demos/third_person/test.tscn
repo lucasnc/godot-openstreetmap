@@ -52,7 +52,7 @@ light_energy = 0.4
 [node name="HUD" parent="." instance=ExtResource( 12 )]
 
 [node name="Player" parent="." instance=ExtResource( 13 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0 )
+transform = Transform( 1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, -0.0380244, 0, 0.0744295 )
 run_speed = 10.0
 
 [node name="Camera" parent="." instance=ExtResource( 14 )]
@@ -62,5 +62,5 @@ environment = null
 [node name="Locations" parent="." instance=ExtResource( 15 )]
 visible = false
 
-[connection signal="new_location" from="Locations" to="Player" method="teleport"]
 [connection signal="new_location" from="Locations" to="." method="teleport"]
+[connection signal="new_location" from="Locations" to="Player" method="teleport"]

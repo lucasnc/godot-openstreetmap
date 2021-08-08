@@ -13,6 +13,18 @@ var event_timestamp = 0
 func _ready():
 	teleport(-25.09411, -50.15175)
 	spawn_collectables()
+	spawn_zombie()
+	
+	
+func spawn_zombie():
+	var count = 100
+		
+	for i in count:
+		var zombie_resource = load("res://openstreetmap_demos/third_person/objects/zombie.tscn")
+		var zombie = zombie_resource.instance()
+		zombie.translation = Vector3(rand_range(0, 100), 0, rand_range(0, 100))
+		print("gerando zumbi ", zombie.translation)
+		add_child(zombie)
 	
 func spawn_collectables():
 	var count = 5
