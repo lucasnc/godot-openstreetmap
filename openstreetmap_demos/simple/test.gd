@@ -17,12 +17,13 @@ func _ready():
 	
 	
 func spawn_zombie():
-	var count = 100
+	var count = 20
 		
 	for i in count:
 		var zombie_resource = load("res://openstreetmap_demos/third_person/objects/zombie.tscn")
 		var zombie = zombie_resource.instance()
 		zombie.translation = Vector3(rand_range(0, 100), 0, rand_range(0, 100))
+		zombie.set_player($Player)
 		print("gerando zumbi ", zombie.translation)
 		add_child(zombie)
 	

@@ -6,27 +6,63 @@ onready var animation_player = get_node("AnimationPlayer")
 onready var armature = get_node("Armature")
 onready var particles = get_node("Particles")
 
+const DEFAULT = 0
+const CHASING = 1
+const DEAD = 2
+
+var state
 var side
-var dead
+var player = null
 
 func _ready():
 	add_to_group(game.ZOMBIE)
-	dead = false
+	state = DEFAULT
 	armature.show()
 	particles.hide()
-	set_rotation(Vector3(0, randf()*2*PI, 0))
+	#set_rotation(Vector3(0, randf()*2*PI, 0))
 	$Timer.wait_time = rand_range(2, 10)
 	$Timer.start()
 
 func _physics_process(delta):
-	if !dead:
-		animation_player.play("default")
-		var angle = get_rotation().y
-		set_translation(get_translation() + delta * 0.5 * Vector3(cos(angle), 0, -sin(angle)))
-			
+	if state != DEAD:
+		if(state == DEFAULT):
+			default_state(delta)
+			if(is_near(player.translation, translation)):
+				state = CHASING
+				$Timer.stop()
+		if(state == CHASING):
+			chasing_state(delta)
+			if(!is_near(player.translation, translation)):
+				state = DEFAULT
+				$Timer.start()
+
+
+func chasing_state(delta):
+	var target_pos = player.global_transform.origin
+	look_at(target_pos, Vector3.UP)
+	rotation.y += PI / 2
+	var angle = get_rotation().y
+	set_translation(get_translation() + delta * 5 * Vector3(cos(angle), 0, -sin(angle)))
+	
+
+func default_state(delta):
+	animation_player.play("default")
+	var angle = get_rotation().y
+	set_translation(get_translation() + delta * 0.5 * Vector3(cos(angle), 0, -sin(angle)))
+
+
 func change_rotation():
 	side = rand_range(0, 360)
 	rotation_degrees = Vector3(0, side, 0)
+	
+func is_near(player, zombie):
+	if(player.distance_to(zombie) < 10):
+		return true
+	else:
+		return false
+
+func set_player(p):
+	player = p
 	
 #func _fixed_process(delta):
 #	var angle = get_rotation().y
@@ -39,7 +75,7 @@ func change_rotation():
 #	set_translation(get_translation() + delta * 0.5 * Vector3(cos(angle), 0, -sin(angle)))
 
 func _on_enter_screen():
-	if !dead:
+	if state != DEAD:
 		animation_player.play("default")
 		set_physics_process(false)
 		ray1.set_enabled(true)
@@ -53,13 +89,14 @@ func _on_exit_screen():
 
 func _on_zombie_body_enter(body):
 	if body.is_in_group(game.PLAYER):
-		dead = true
-		set_physics_process(false)
-		armature.hide()
-		particles.show()
-		particles.set_emitting(true)
+		pass
+#		set_physics_process(false)
+#		armature.hide()
+#		particles.show()
+#		particles.set_emitting(true)
 
 
 func _on_Timer_timeout():
 	change_rotation()
-	pass # Replace with function body.
+	pass
+

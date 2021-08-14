@@ -218,6 +218,7 @@ height = 1.55299
 
 [node name="zombie" type="Area"]
 _import_path = NodePath(".")
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0 )
 angular_damp = 1.0
 script = ExtResource( 1 )
 
