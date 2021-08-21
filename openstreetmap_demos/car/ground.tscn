@@ -2,7 +2,7 @@
 
 [ext_resource path="res://addons/openstreetmap/ground.tscn" type="PackedScene" id=1]
 [ext_resource path="res://addons/openstreetmap/materials/ground.shader" type="Shader" id=2]
-[ext_resource path="res://addons/openstreetmap/textures/MarekGrassDehydrated0001.jpg" type="Texture" id=3]
+[ext_resource path="res://textures/MarekGrassDehydrated0001.jpg" type="Texture" id=3]
 [ext_resource path="res://openstreetmap_demos/car/materials/231.jpg" type="Texture" id=4]
 [ext_resource path="res://openstreetmap_demos/car/materials/219.jpg" type="Texture" id=5]
 [ext_resource path="res://openstreetmap_demos/car/materials/219_norm.jpg" type="Texture" id=6]

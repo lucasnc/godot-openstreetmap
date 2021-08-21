@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://addons/openstreetmap/scripts/tile3d.gd" type="Script" id=1]
-[ext_resource path="res://addons/openstreetmap/textures/downloading.png" type="Texture" id=2]
-[ext_resource path="res://addons/openstreetmap/textures/converting.png" type="Texture" id=3]
-[ext_resource path="res://addons/openstreetmap/textures/loading.png" type="Texture" id=4]
-[ext_resource path="res://addons/openstreetmap/textures/waiting.png" type="Texture" id=5]
+[ext_resource path="res://textures/downloading.png" type="Texture" id=2]
+[ext_resource path="res://textures/converting.png" type="Texture" id=3]
+[ext_resource path="res://textures/loading.png" type="Texture" id=4]
+[ext_resource path="res://textures/waiting.png" type="Texture" id=5]
 
 [node name="Tile3d" type="Spatial" index="0"]
 

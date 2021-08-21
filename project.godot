@@ -15,7 +15,7 @@ _global_script_class_icons={
 [application]
 
 config/name="godot-openstreetmap"
-run/main_scene="res://openstreetmap_demos/menu.tscn"
+run/main_scene="res://scenes/menu.tscn"
 config/icon="res://icon.png"
 
 [autoload]
@@ -25,7 +25,7 @@ geometry="*res://addons/openstreetmap/global/geometry.gd"
 game_state="*res://addons/openstreetmap/global/game_state.gd"
 http="*res://addons/openstreetmap/global/http.gd"
 meshes="*res://addons/openstreetmap/global/meshes.gd"
-game="*res://openstreetmap_demos/global/game.gd"
+game="*res://global/game.gd"
 
 [display]
 

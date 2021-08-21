@@ -1,0 +1,66 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://scenes/ground.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/trees.tscn" type="PackedScene" id=2]
+[ext_resource path="res://openstreetmap_demos/simple/objects/fountain.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/buildings.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/roads.tscn" type="PackedScene" id=5]
+[ext_resource path="res://openstreetmap_demos/simple/post_boxes.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/grass.tscn" type="PackedScene" id=7]
+[ext_resource path="res://addons/openstreetmap/collider.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/road_sides.tscn" type="PackedScene" id=9]
+[ext_resource path="res://openstreetmap_demos/simple/test.gd" type="Script" id=10]
+[ext_resource path="res://addons/openstreetmap/map.tscn" type="PackedScene" id=11]
+[ext_resource path="res://scenes/demo_interface.tscn" type="PackedScene" id=12]
+[ext_resource path="res://scenes/player.tscn" type="PackedScene" id=13]
+[ext_resource path="res://scenes/camera.tscn" type="PackedScene" id=14]
+[ext_resource path="res://scenes/locations.tscn" type="PackedScene" id=15]
+
+[sub_resource type="ProceduralSky" id=1]
+sky_top_color = Color( 0.0470588, 0.454902, 0.976471, 1 )
+sky_horizon_color = Color( 0.556863, 0.823529, 0.909804, 1 )
+sky_curve = 0.25
+ground_bottom_color = Color( 0.101961, 0.145098, 0.188235, 1 )
+ground_horizon_color = Color( 0.482353, 0.788235, 0.952941, 1 )
+ground_curve = 0.01
+sun_energy = 16.0
+
+[sub_resource type="Environment" id=2]
+background_mode = 2
+background_sky = SubResource( 1 )
+background_color = Color( 0.491119, 0.717295, 0.816406, 1 )
+ambient_light_color = Color( 1, 1, 1, 1 )
+ambient_light_energy = 0.6
+ambient_light_sky_contribution = 0.0
+ssao_enabled = true
+ssao_blur = 1
+
+[node name="Spatial" type="Spatial"]
+script = ExtResource( 10 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 2 )
+
+[node name="Map" parent="." instance=ExtResource( 11 )]
+size = 0
+map_objects = [ ExtResource( 4 ), ExtResource( 1 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 6 ), ExtResource( 8 ), ExtResource( 5 ), ExtResource( 9 ), ExtResource( 7 ) ]
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.325859, 0.945418, 0, -0.945418, 0.325859, 0, 39.6899, 0.910561 )
+light_energy = 0.4
+
+[node name="HUD" parent="." instance=ExtResource( 12 )]
+
+[node name="Player" parent="." instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0380244, 0, 0.0744295 )
+run_speed = 10.0
+
+[node name="Camera" parent="." instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 0.858015, 0.513624, 0, -0.513624, 0.858015, -0.108749, 6.48896, 9.4482 )
+environment = null
+
+[node name="Locations" parent="." instance=ExtResource( 15 )]
+visible = false
+
+[connection signal="new_location" from="Locations" to="Player" method="teleport"]
+[connection signal="new_location" from="Locations" to="." method="teleport"]

@@ -11,8 +11,8 @@
 [ext_resource path="res://openstreetmap_demos/simple/road_sides.tscn" type="PackedScene" id=9]
 [ext_resource path="res://openstreetmap_demos/simple/grass.tscn" type="PackedScene" id=10]
 [ext_resource path="res://openstreetmap_demos/simple/water.tscn" type="PackedScene" id=11]
-[ext_resource path="res://openstreetmap_demos/demo_interface.tscn" type="PackedScene" id=12]
-[ext_resource path="res://openstreetmap_demos/locations.tscn" type="PackedScene" id=13]
+[ext_resource path="res://scenes/demo_interface.tscn" type="PackedScene" id=12]
+[ext_resource path="res://scenes/locations.tscn" type="PackedScene" id=13]
 
 [sub_resource type="ProceduralSky" id=1]
 sky_top_color = Color( 0.6, 0.494118, 0.913725, 1 )
