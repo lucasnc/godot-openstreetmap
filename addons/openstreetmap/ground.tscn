@@ -3,28 +3,12 @@
 [ext_resource path="res://addons/openstreetmap/ground.gd" type="Script" id=1]
 
 [sub_resource type="PlaneMesh" id=1]
-
-custom_aabb = AABB( 0, 0, 0, 0, 0, 0 )
 size = Vector2( 1, 1 )
 subdivide_width = 8
 subdivide_depth = 8
 
 [node name="Ground" type="MeshInstance"]
-
-transform = Transform( -1, 8.74228e-008, 0, -8.74228e-008, -1, 0, 0, 0, 1, 306, 0, 306 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
+transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 306, 0, 306 )
 mesh = SubResource( 1 )
-skeleton = NodePath("..")
 material/0 = null
 script = ExtResource( 1 )
-_sections_unfolded = [ "Transform", "material" ]
-
-

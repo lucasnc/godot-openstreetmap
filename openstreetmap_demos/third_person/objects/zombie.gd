@@ -27,14 +27,14 @@ func _physics_process(delta):
 	if state != DEAD:
 		if(state == DEFAULT):
 			default_state(delta)
-			if(is_near(player.translation, translation)):
-				state = CHASING
-				$Timer.stop()
+			if(player != null):
+				if(is_near(player.translation, translation)):
+					state = CHASING
 		if(state == CHASING):
 			chasing_state(delta)
-			if(!is_near(player.translation, translation)):
-				state = DEFAULT
-				$Timer.start()
+			if(player != null):
+				if(!is_near(player.translation, translation)):
+					state = DEFAULT
 
 
 func chasing_state(delta):
@@ -43,13 +43,11 @@ func chasing_state(delta):
 	rotation.y += PI / 2
 	var angle = get_rotation().y
 	set_translation(get_translation() + delta * 5 * Vector3(cos(angle), 0, -sin(angle)))
-	
 
 func default_state(delta):
 	animation_player.play("default")
 	var angle = get_rotation().y
 	set_translation(get_translation() + delta * 0.5 * Vector3(cos(angle), 0, -sin(angle)))
-
 
 func change_rotation():
 	side = rand_range(0, 360)
@@ -92,11 +90,10 @@ func _on_zombie_body_enter(body):
 		pass
 #		set_physics_process(false)
 #		armature.hide()
-#		particles.show()
 #		particles.set_emitting(true)
 
 
 func _on_Timer_timeout():
-	change_rotation()
-	pass
+	if(state == DEFAULT):
+		change_rotation()
 
