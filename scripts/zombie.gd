@@ -28,19 +28,19 @@ func _physics_process(delta):
 		if(state == DEFAULT):
 			default_state(delta)
 			if(player != null):
-				if(is_near(player.translation, translation)):
+				if(!game.player_dead && is_near(player.translation, translation)):
 					state = CHASING
 		if(state == CHASING):
-			chasing_state(delta)
 			if(player != null):
-				if(!is_near(player.translation, translation)):
+				chasing_state(delta)
+				if(game.player_dead || !is_near(player.translation, translation)):
 					state = DEFAULT
-
 
 func chasing_state(delta):
 	var target_pos = player.global_transform.origin
-	look_at(target_pos, Vector3.UP)
-	rotation.y += PI / 2
+	if(player.is_on_floor()):
+		look_at(target_pos, Vector3.UP)
+		rotation.y += PI / 2
 	var angle = get_rotation().y
 	set_translation(get_translation() + delta * 5 * Vector3(cos(angle), 0, -sin(angle)))
 
@@ -87,7 +87,7 @@ func _on_exit_screen():
 
 func _on_zombie_body_enter(body):
 	if body.is_in_group(game.PLAYER):
-		pass
+		game.player_dead = true
 #		set_physics_process(false)
 #		armature.hide()
 #		particles.set_emitting(true)

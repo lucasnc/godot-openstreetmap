@@ -11,3 +11,7 @@ func _on_Collectable_body_entered(body):
 		game.collectables += collectable
 		queue_free()
 	pass
+	
+func _physics_process(delta):
+	pass
+	

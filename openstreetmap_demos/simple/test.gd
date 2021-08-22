@@ -12,8 +12,8 @@ var event_timestamp = 0
 var collectables_resource = ["res://scenes/collectable3.tscn", "res://scenes/collectable2.tscn", "res://scenes/collectable.tscn"]
 
 func _ready():
+	game.player_dead = false
 	teleport(-25.09487, -50.15469)
-	
 	var collectables_count = collectables_resource.size()
 	for i in collectables_count:
 		print(i)

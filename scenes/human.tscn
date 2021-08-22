@@ -6,7 +6,6 @@
 [sub_resource type="Animation" id=1]
 resource_name = "Die"
 length = 3.5
-loop = true
 tracks/0/type = "transform"
 tracks/0/path = NodePath(".:Hips")
 tracks/0/interp = 1
