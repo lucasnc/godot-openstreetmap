@@ -54,10 +54,7 @@ func change_rotation():
 	rotation_degrees = Vector3(0, side, 0)
 	
 func is_near(player, zombie):
-	if(player.distance_to(zombie) < 10):
-		return true
-	else:
-		return false
+	return player.distance_to(zombie) < 10
 
 func set_player(p):
 	player = p

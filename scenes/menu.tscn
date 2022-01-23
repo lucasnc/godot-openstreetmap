@@ -53,8 +53,8 @@ margin_left = 66.0
 margin_top = 298.0
 margin_right = 1214.0
 margin_bottom = 422.0
-custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 1 )
 text = "Pressione [ESPAÇO] para começar"
 __meta__ = {
 "_edit_use_anchors_": false
